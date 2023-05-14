@@ -1,11 +1,3 @@
-/*document.querySelector(".w").addEventListener('click',onclick);
-document.querySelector(".a").addEventListener('click',onclick);
-document.querySelector(".s").addEventListener('click',onclick);
-document.querySelector(".d").addEventListener('click',onclick);
-document.querySelector(".j").addEventListener('click',onclick);
-document.querySelector(".k").addEventListener('click',onclick);
-document.querySelector(".l").addEventListener('click',onclick);
-*/
 for(let i=0;i<7;i++){
   document.querySelectorAll(".drum")[i].addEventListener('click',function(){
     var clickedButton=this.innerHTML;
@@ -13,13 +5,12 @@ for(let i=0;i<7;i++){
 
 
   });
-
-  document.addEventListener('keydown',function(Event){
-    makeSound(Event.key);
-  });
-
-  function makeSound(key){
-    switch(key){
+}
+document.addEventListener('keydown',function(Event){
+  makeSound(Event.key);
+});
+function makeSound(key){
+  switch(key){
       case 'w':
         var crash=new Audio('./sounds/crash.mp3');
         crash.play();
@@ -49,4 +40,11 @@ for(let i=0;i<7;i++){
         tom4.play();
     }
   }
+}
+function buttonAnimation(btnAnimation){
+  let btnPressed=document.querySelector('.'+btnAnimation);
+  btnPressed.classList.add('pressed');
+  setTimeout(function(){
+    btnPressed.classList.remove('pressed')
+    },200);
 }
