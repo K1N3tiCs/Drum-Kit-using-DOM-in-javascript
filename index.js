@@ -7,12 +7,14 @@ for(let i=0;i<7;i++){
 
   });
 }
-document.addEventListener('keydown',function(Event){
-  makeSound(Event.key);
-  buttonAnimation(Event.key);
-});
-function makeSound(key){
-  switch(key){
+
+  document.addEventListener('keydown',function(Event){
+    makeSound(Event.key);
+    buttonAnimation(Event.key);
+  });
+
+  function makeSound(key){
+    switch(key){
       case 'w':
         var crash=new Audio('./sounds/crash.mp3');
         crash.play();
@@ -42,11 +44,11 @@ function makeSound(key){
         tom4.play();
     }
   }
-}
-function buttonAnimation(btnAnimation){
-  let btnPressed=document.querySelector('.'+btnAnimation);
-  btnPressed.classList.add('pressed');
+
+function buttonAnimation(currentKey){
+  let btnAnimation = document.querySelector("."+currentKey);
+  btnAnimation.classList.add("pressed");
   setTimeout(function(){
-    btnPressed.classList.remove('pressed')
-    },200);
+    btnAnimation.classList.remove("pressed");
+  },200);
 }
